@@ -4,12 +4,45 @@ using System.Collections;
 public class Map : MonoBehaviour {
 
 	[ContextMenu ("Generate Map")]
-	void DoSomething () {
+	void GenerateMapHandler () {
+
+		_world = this.gameObject;
+
+		// Remove all child objects
+		for (int i = _world.transform.childCount - 1; i >= 0; i--)
+		{
+			DestroyImmediate(_world.transform.GetChild(i).gameObject);
+		}
+
 		LoadData();
+		GenerateMap();
+	}
+
+	[ContextMenu ("Remove Map")]
+	void RemoveMapHandler ()
+	{
+		_world = this.gameObject;
+
+		// Remove all child objects
+		for (int i = _world.transform.childCount - 1; i >= 0; i--)
+		{
+			DestroyImmediate(_world.transform.GetChild(i).gameObject);
+		}
 	}
 
 	public TextAsset dataFile;
-	
+	public GameObject pathObject;
+	public GameObject towerObject;
+
+	private GameObject _world;
+	public GameObject World
+	{
+		get
+		{
+			return _world;
+		}
+	}
+
 	private int _width;
 	public int Width
 	{
@@ -45,6 +78,7 @@ public class Map : MonoBehaviour {
 
 		foreach (string line in dataLines)
 		{
+			// Assume width, height, data order
 			if (_width == 0)
 			{
 				_width = int.Parse(line);
@@ -69,10 +103,35 @@ public class Map : MonoBehaviour {
 		Debug.Log(string.Format("Loaded level\r\nWidth = {0}\r\nHeight = {1}", _width, _height));
 		// Done!
 	}
-	
+
+	void GenerateMap ()
+	{
+		for (int z = 0; z < _height; z++)
+		{
+			for (int x = 0; x < _width; x++)
+			{
+				// Path block
+				if (_data[x + z * _height] == 0)
+				{
+					GameObject o = Instantiate(pathObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
+					o.transform.parent = _world.transform;
+				}
+				// Tower block
+				else if (_data[x + z * _height] == 1)
+				{
+					GameObject o = Instantiate(towerObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
+					o.transform.parent = _world.transform;
+				}
+			}
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
-		
+		_world = gameObject;
+
+		LoadData();
+		GenerateMap();
 	}
 	
 	// Update is called once per frame
