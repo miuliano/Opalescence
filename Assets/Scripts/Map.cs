@@ -33,6 +33,8 @@ public class Map : MonoBehaviour {
 	public TextAsset dataFile;
 	public GameObject pathObject;
 	public GameObject towerObject;
+	public GameObject grassObject;
+
 
 	private GameObject _world;
 	public GameObject World
@@ -110,14 +112,32 @@ public class Map : MonoBehaviour {
 		{
 			for (int x = 0; x < _width; x++)
 			{
-				// Path block
+				// Grass block
 				if (_data[x + z * _height] == 0)
+				{
+					GameObject o = Instantiate(grassObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
+					o.transform.parent = _world.transform;
+				}
+				// Path block
+				else if (_data[x + z * _height] == 1)
 				{
 					GameObject o = Instantiate(pathObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
 					o.transform.parent = _world.transform;
 				}
 				// Tower block
-				else if (_data[x + z * _height] == 1)
+				else if (_data[x + z * _height] == 2)
+				{
+					GameObject o = Instantiate(towerObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
+					o.transform.parent = _world.transform;
+				}
+				// Spawn Block
+				else if (_data[x + z * _height] == 8)
+				{
+					GameObject o = Instantiate(towerObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
+					o.transform.parent = _world.transform;
+				}
+				// End Point Block
+				else if (_data[x + z * _height] == 9)
 				{
 					GameObject o = Instantiate(towerObject, new Vector3(x + 0.0f, 0.0f, z + 0.0f), Quaternion.identity) as GameObject;
 					o.transform.parent = _world.transform;

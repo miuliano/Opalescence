@@ -2,7 +2,11 @@ fileFormatVersion: 2
 guid: e60b57509d7714498919c03d2f52097f
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dataFile: {fileID: 4900000, guid: 4c51dc6f6478240a9a2f8ad3d8cdca3f, type: 3}
+  - pathObject: {fileID: 100000, guid: 31839b741d0234ae8aca9f284bfc2e2f, type: 2}
+  - towerObject: {fileID: 100002, guid: d8b8b53f76e9d4705917704eb364d0ce, type: 2}
+  - grassObject: {fileID: 100000, guid: 0e92cb2250992ad47a8ec3d13cfa0f70, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
