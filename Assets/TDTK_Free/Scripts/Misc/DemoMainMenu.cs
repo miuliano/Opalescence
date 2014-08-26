@@ -14,9 +14,26 @@ public class DemoMainMenu : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		if(GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-30, 100, 30), "Level 1")){
+
+		GUI.backgroundColor = Color.white;
+
+		if(GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-20, 100, 30), "Start")){
 			Application.LoadLevel("ROM Scene");
 		}
+
+		GUI.contentColor = Color.black;
+
+		var centeredStyle = GUI.skin.GetStyle("Label");
+		centeredStyle.alignment = TextAnchor.UpperCenter;
+
+
+		GUI.Label(new Rect(Screen.width/2-150, Screen.height-200, 300, 150), "" +
+		          "<size=25>Instructions:</size>\n" +
+		          "<size=14>Place a gemstone tower anywhere on the grid.</size>\n" +
+		          "<size=14>The objective is to erode all the ores.</size>\n\n" +
+		          "<size=14>Let's get rock'n rollin'!</size>", centeredStyle);
+
+
 		/*
 		if(GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-30+45, 100, 30), "Level 2")){
 			Application.LoadLevel("ExampleScene2");

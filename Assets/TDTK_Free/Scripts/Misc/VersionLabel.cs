@@ -14,6 +14,8 @@ public class VersionLabel : MonoBehaviour {
 	}
 	
 	void OnGUI(){
-		GUI.Label(new Rect(Screen.width/2-105, Screen.height-24, 450, 25), "Team Gamesaurus Rex");
+		GUI.contentColor = Color.black;
+
+		GUI.Label(new Rect(0, Screen.height-25, 200, 25), "By: Team Gamesaurus Rex");
 	}
 }
