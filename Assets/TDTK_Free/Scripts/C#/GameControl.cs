@@ -171,9 +171,9 @@ public class GameControl : MonoBehaviour {
 	private bool loadAttempt=false;
 	void OnGUI(){
 		if(icon==null){
-			if(!loadAttempt) icon=(Texture)Resources.Load("Title&Icon/icon_free");
+			// if(!loadAttempt) icon=(Texture)Resources.Load("Title&Icon/icon_free");
 			
-			GUI.Label(new Rect(Screen.width-80, Screen.height-25-25, 100, 30), "TDTK Free");
+			// GUI.Label(new Rect(Screen.width-80, Screen.height-25-25, 100, 30), "TDTK Free");
 		}
 		else{
 			//GUIContent guiContent=new GUIContent(" TDTK Free", icon); 

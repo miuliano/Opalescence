@@ -337,7 +337,7 @@ public class UI : MonoBehaviour {
 			if(!paused){
 				//if SpawnManager is ready to spawn
 				if(enableSpawnButton){
-					if(GUI.Button(new Rect(buttonX, 5, 60, 20), "Spawn")){
+					if(GUI.Button(new Rect(buttonX, 5, 130, 20), "Let The Ores Roll")){
 						//if the game is not ended
 						if(GameControl.gameState!=_GameState.Ended){
 							//if spawn is successful, disable the spawnButton
@@ -349,6 +349,7 @@ public class UI : MonoBehaviour {
 				}
 				
 				//display the fastforward button based on current time scale
+			/*
 				if(Time.timeScale==1){
 					if(GUI.Button(new Rect(buttonX, 5, 60, 20), "Timex"+fastForwardSpeed.ToString())){
 						Time.timeScale=fastForwardSpeed;
@@ -359,6 +360,7 @@ public class UI : MonoBehaviour {
 						Time.timeScale=1;
 					}
 				}
+			*/
 			}
 			//shift the cursor to where the next element will be drawn
 			else buttonX+=65;
@@ -441,9 +443,12 @@ public class UI : MonoBehaviour {
 				if(GUI.Button(new Rect(startX, startY+=30, 100, 30), "Resume Game")){
 					TogglePause();
 				}
+				/*
 				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Next Level")){
 					Application.LoadLevel(Application.loadedLevelName);
-				}
+
+			}
+*/
 				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Main Menu")){
 					if(mainMenu!="") Application.LoadLevel(mainMenu);
 				}
@@ -466,12 +471,14 @@ public class UI : MonoBehaviour {
 			if(GUI.Button(new Rect(startX, startY+=30, 100, 30), "Restart Level")){
 				Application.LoadLevel(Application.loadedLevelName);
 			}
+		/*
 			if(alwaysEnableNextButton || winLostFlag){
 				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Next Level")){
 					if(nextLevel!="") Application.LoadLevel(nextLevel);
 				}
 			}
-			if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Main Menu")){
+		*/
+		if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Main Menu")){
 				if(mainMenu!="") Application.LoadLevel(mainMenu);
 			}
 		
