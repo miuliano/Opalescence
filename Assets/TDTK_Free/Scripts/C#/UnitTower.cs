@@ -952,6 +952,7 @@ public class UnitTower : Unit {
 	
 	//public function call to level up tower, 
 	public bool Upgrade(){
+
 		if(level<levelCap){
 			int levelM=level-1;
 			//Debug.Log(levelM);
@@ -970,9 +971,10 @@ public class UnitTower : Unit {
 			StartCoroutine(Building(upgradeStat[levelM].buildDuration, true));
 			return true;
 		}
-		
+
 		GameMessage.DisplayMessage("Tower is fully upgraded");
 		return false;
+
 	}
 	
 	//called when the tower is being build or upgrade

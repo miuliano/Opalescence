@@ -366,6 +366,9 @@ public class UI : MonoBehaviour {
 			else buttonX+=65;
 			buttonX+=130;
 			
+			var fontSize = GUI.skin.GetStyle("Label");
+			fontSize.fontSize=14;
+
 			//draw life and wave infomation
 			GUI.Label(new Rect(200, 5, 100, 30), "Life: "+GameControl.GetPlayerLife());
 			GUI.Label(new Rect(200+(topPanelRect.width-35-buttonX)/2, 5, 100, 30), "Wave: "+SpawnManager.GetCurrentWave()+"/"+SpawnManager.GetTotalWave());
@@ -751,8 +754,10 @@ public class UI : MonoBehaviour {
 		float startX=Screen.width-260;
 		float startY=Screen.height-455-bottomPanelRect.height;
 		float widthBox=250;
-		float heightBox=450;
-		
+		float heightBox=280; // height of box
+
+
+
 		towerUIRect=new Rect(startX, startY, widthBox, heightBox);
 		for(int i=0; i<3; i++) GUI.Box(towerUIRect, "");
 		
@@ -777,7 +782,7 @@ public class UI : MonoBehaviour {
 		tempGUIStyle.fontSize=13;
 		tempGUIStyle.normal.textColor=new Color(1, 0, 0, 1f);
 		
-		GUI.Label(new Rect(startX, startY+=height, width, height), "Level: "+currentSelectedTower.GetLevel().ToString(), tempGUIStyle);
+		// GUI.Label(new Rect(startX, startY+=height, width, height), "Level: "+currentSelectedTower.GetLevel().ToString(), tempGUIStyle);
 		
 		startY+=20;
 		
@@ -843,6 +848,7 @@ public class UI : MonoBehaviour {
 		
 		//reset the draw position
 		startY=Screen.height-180-bottomPanelRect.height;
+		/*
 		if(enableTargetPrioritySwitch){
 			if(currentSelectedTower.type==_TowerType.TurretTower){
 				//~ if(currentSelectedTower.targetingArea!=_TargetingArea.StraightLine){
@@ -857,17 +863,18 @@ public class UI : MonoBehaviour {
 				//~ }
 			}
 		}
-		
+		*/
 
 		//check if the tower can be upgrade
 		bool upgradable=false;
 		if(!currentSelectedTower.IsLevelCapped() && currentSelectedTower.IsBuilt()){
-			upgradable=true;
+			upgradable=false;
 		}
 		
 		//reset the draw position
-		startY=Screen.height-50-bottomPanelRect.height;
-		
+		// startY=Screen.height-50-bottomPanelRect.height;
+		startY=Screen.height-250;
+
 		//if the tower is eligible to upgrade, draw the upgrade button
 		if(upgradable){
 			if(GUI.Button(new Rect(startX, startY, 100, 30), new GUIContent("Upgrade", "1"))){
@@ -876,12 +883,13 @@ public class UI : MonoBehaviour {
 			}
 		}
 		//sell button
+
 		if(currentSelectedTower.IsBuilt()){
-			if(GUI.Button(new Rect(startX+110, startY, 100, 30), new GUIContent("Sell", "2"))){
+			if(GUI.Button(new Rect(startX+110, startY, 100, 30), new GUIContent("Destroy", "2"))){
 				currentSelectedTower.Sell();
 			}
 		}
-		
+
 		//if the cursor is hover on the upgrade button, show the cost
 		if(GUI.tooltip=="1"){
 			
@@ -892,7 +900,7 @@ public class UI : MonoBehaviour {
 		//if the cursor is hover on the sell button, show the resource gain
 		else if(GUI.tooltip=="2"){
 			int[] sellValue=currentSelectedTower.GetTowerSellValue();
-			GUI.Label(new Rect(startX+120, startY, 150, 25), " + "+sellValue[0].ToString()+"resource");
+			// GUI.Label(new Rect(startX+120, startY, 150, 25), " + "+sellValue[0].ToString()+"resource");
 		}
 	}
 	
