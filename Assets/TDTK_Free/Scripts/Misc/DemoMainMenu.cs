@@ -17,7 +17,7 @@ public class DemoMainMenu : MonoBehaviour {
 
 		GUI.backgroundColor = Color.white;
 
-		if(GUI.Button(new Rect(Screen.width/2-75, Screen.height/2, 150, 30), "Let's get rock'n roll!")){
+		if(GUI.Button(new Rect(Screen.width/2-75, Screen.height/2, 150, 30), "Let's get rock'n rollin'!")){
 			Application.LoadLevel("ROM Scene");
 		}
 
