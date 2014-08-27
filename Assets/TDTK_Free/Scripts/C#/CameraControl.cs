@@ -1,149 +1,122 @@
 using UnityEngine;
 using System.Collections;
 
-#pragma warning disable 0168 // variable declared but not used.
-#pragma warning disable 0219 // variable assigned but not used.
-#pragma warning disable 0414 // private field assigned but not used.
-
 public class CameraControl : MonoBehaviour {
 
-	//public enum _Platform{Hybird, Mouse&Keyboard, Touch}
-	//public _Platform platform;
+	/// <summary>
+	/// The speed at which the camera pans.
+	/// </summary>
+	public float panSpeed = 5;
 
-	public float panSpeed=5;
-	public float zoomSpeed=5;
-	
-	private float initialMousePosX;
-	private float initialMousePosY;
-	
-	private float initialRotX;
-	private float initialRotY;
-	
-	
-	public float minPosX=-10;
-	public float maxPosX=10;
-	
-	public float minPosZ=-10;
-	public float maxPosZ=10;
-	
-	public float minRadius=8;
-	public float maxRadius=30;
-	
-	public float minRotateAngle=10;
-	public float maxRotateAngle=89;
+	/// <summary>
+	/// The speed at which the camera zooms.
+	/// </summary>
+	public float zoomSpeed = 5;
 
-	//calculated deltaTime based on timeScale so camera movement speed always remain constant
-	private float deltaT;
-	
-	private Transform cam;
-	private Transform thisT;
+	/// <summary>
+	/// The minimum x position of the camera bounds.
+	/// </summary>
+	public float minPosX = -10;
 
-	void Awake(){
-		thisT=transform;
-		
-		cam=Camera.main.transform;
-	}
-	
-	// Use this for initialization
-	void Start () {
-		minRotateAngle=Mathf.Max(10, minRotateAngle);
-		maxRotateAngle=Mathf.Min(89, maxRotateAngle);
-		
-		minRadius=Mathf.Max(1, minRadius);
-	}
-	
+	/// <summary>
+	/// The maximum x position of the camera bounds.
+	/// </summary>
+	public float maxPosX = 10;
+
+	/// <summary>
+	/// The minimum z position of the camera bounds.
+	/// </summary>
+	public float minPosZ = -10;
+
+	/// <summary>
+	/// The maximum z position of the camera bounds.
+	/// </summary>
+	public float maxPosZ = 10;
+
+	/// <summary>
+	/// The minimum zoom of the camera.
+	/// </summary>
+	public float minZoom = 8;
+
+	/// <summary>
+	/// The maximum zoom of the camera.
+	/// </summary>
+	public float maxZoom = 30;
+
 	// Update is called once per frame
 	void Update () {
-		
-		if(Time.timeScale==1) deltaT=Time.deltaTime;
-		else deltaT=Time.deltaTime/Time.timeScale;
-		
+
+		// Scale delta time using timescale
+		float deltaT = Time.deltaTime;
+
+		if (Time.timeScale != 1) {
+			deltaT /= Time.timeScale;
+		}
 		
 		#if UNITY_EDITOR || (!UNITY_IPHONE && !UNITY_ANDROID)
-		
-		//mouse and keyboard
-		if(Input.GetMouseButtonDown(1)){
-			initialMousePosX=Input.mousePosition.x;
-			initialMousePosY=Input.mousePosition.y;
-			initialRotX=thisT.eulerAngles.y;
-			initialRotY=thisT.eulerAngles.x;
-		}
 
-		if(Input.GetMouseButton(1)){
-			float deltaX=Input.mousePosition.x-initialMousePosX;
-			float deltaRotX=(.1f*(initialRotX/Screen.width));
-			float rotX=deltaX+deltaRotX;
-			
-			float deltaY=initialMousePosY-Input.mousePosition.y;
-			float deltaRotY=-(.1f*(initialRotY/Screen.height));
-			float rotY=deltaY+deltaRotY;
-			float y=rotY+initialRotY;
-			
-			//limit the rotation
-			if(y>maxRotateAngle){
-				initialRotY-=(rotY+initialRotY)-maxRotateAngle;
-				y=maxRotateAngle;
-			}
-			else if(y<minRotateAngle){
-				initialRotY+=minRotateAngle-(rotY+initialRotY);
-				y=minRotateAngle;
-			}
-			
-			thisT.rotation=Quaternion.Euler(y, rotX+initialRotX, 0);
-		}
-		
-		
-		Quaternion direction=Quaternion.Euler(0, thisT.eulerAngles.y, 0);
-		
+		Transform cam = Camera.main.transform;
+
+		// Keep movement relative to camera
+		Quaternion direction = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+
 		if(Input.GetButton("Horizontal")) {
-			Vector3 dir=transform.InverseTransformDirection(direction*Vector3.right);
-			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Horizontal"));
+			Vector3 dir = transform.InverseTransformDirection(direction * Vector3.right);
+			transform.Translate(dir * panSpeed * deltaT * Input.GetAxisRaw("Horizontal"));
 		}
 
 		if(Input.GetButton("Vertical")) {
-			Vector3 dir=transform.InverseTransformDirection(direction*Vector3.forward);
-			thisT.Translate (dir * panSpeed * deltaT * Input.GetAxisRaw("Vertical"));
+			Vector3 dir = transform.InverseTransformDirection(direction * Vector3.forward);
+			transform.Translate(dir * panSpeed * deltaT * Input.GetAxisRaw("Vertical"));
 		}
-		
-		//cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
-		
-		if(Input.GetAxis("Mouse ScrollWheel")<0){
-			if(Vector3.Distance(cam.position, thisT.position)<maxRadius){
-				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
+
+		// Zooming
+		float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
+
+		if (mouseScroll < 0 || mouseScroll > 0) {
+			// Translate camera along zoom axis
+			cam.Translate(cam.forward * zoomSpeed * mouseScroll, Space.World);
+
+			// Clamp to min/max distance along zoom axis
+			float zoomDistance = Vector3.Dot(cam.position - transform.position, cam.forward);
+
+			if (zoomDistance > maxZoom) {
+				cam.position = transform.position + cam.forward * maxZoom;
+			}
+			else if (zoomDistance < minZoom) {
+				cam.position = transform.position + cam.forward * minZoom;
 			}
 		}
-		else if(Input.GetAxis("Mouse ScrollWheel")>0){
-			if(Vector3.Distance(cam.position, thisT.position)>minRadius){
-				cam.Translate(Vector3.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"));
-			}
-		}
-		
-		//thisT.Translate(cam.forward*zoomSpeed*Input.GetAxis("Mouse ScrollWheel"), Space.World);
 		
 		#endif
+
+		// Clamp x-z movement to bounding box
+		float x = Mathf.Clamp(transform.position.x, minPosX, maxPosX);
+		float z = Mathf.Clamp(transform.position.z, minPosZ, maxPosZ);
 		
-		float x=Mathf.Clamp(thisT.position.x, minPosX, maxPosX);
-		float z=Mathf.Clamp(thisT.position.z, minPosZ, maxPosZ);
-		//float y=Mathf.Clamp(thisT.position.y, verticalLimitBottom, verticalLimitTop);
-		
-		thisT.position=new Vector3(x, thisT.position.y, z);
-		
+		transform.position = new Vector3(x, transform.position.y, z);
 	}
 	
-	
-	public bool showGizmo=true;
-	void OnDrawGizmos(){
-		if(showGizmo){
-			Vector3 p1=new Vector3(minPosX, transform.position.y, maxPosZ);
-			Vector3 p2=new Vector3(maxPosX, transform.position.y, maxPosZ);
-			Vector3 p3=new Vector3(maxPosX, transform.position.y, minPosZ);
-			Vector3 p4=new Vector3(minPosX, transform.position.y, minPosZ);
+	/// <summary>
+	/// Show the bounds and zoom gizmo.
+	/// </summary>
+	public bool showGizmo = true;
+
+	void OnDrawGizmos() {
+		if (showGizmo) {
+			Vector3 p1 = new Vector3(minPosX, transform.position.y, maxPosZ);
+			Vector3 p2 = new Vector3(maxPosX, transform.position.y, maxPosZ);
+			Vector3 p3 = new Vector3(maxPosX, transform.position.y, minPosZ);
+			Vector3 p4 = new Vector3(minPosX, transform.position.y, minPosZ);
 			
-			Gizmos.color=Color.green;
+			Gizmos.color = Color.green;
 			Gizmos.DrawLine(p1, p2);
 			Gizmos.DrawLine(p2, p3);
 			Gizmos.DrawLine(p3, p4);
 			Gizmos.DrawLine(p4, p1);
+
+			Gizmos.color = Color.blue;
+			Gizmos.DrawLine(transform.position + Camera.main.transform.forward * minZoom, transform.position + Camera.main.transform.forward * maxZoom);
 		}
 	}
 	
