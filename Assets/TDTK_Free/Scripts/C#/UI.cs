@@ -894,7 +894,7 @@ public class UI : MonoBehaviour {
 		if(GUI.tooltip=="1"){
 			
 			int[] cost=currentSelectedTower.GetCost();
-			GUI.Label(new Rect(startX+10, startY, 150, 25), " - "+cost[0].ToString()+" resources");
+			GUI.Label(new Rect(startX, startY+27, 150, 30), " - "+cost[0].ToString()+" resources");
 			
 		}
 		//if the cursor is hover on the sell button, show the resource gain

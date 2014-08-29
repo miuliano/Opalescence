@@ -12,16 +12,38 @@ public class DemoMainMenu : MonoBehaviour {
 	void Update () {
 	
 	}
-	
+
+
+
 	void OnGUI(){
 
+		/*
 		GUI.backgroundColor = Color.white;
 
-		if(GUI.Button(new Rect(Screen.width/2-75, Screen.height/2, 150, 30), "Let's get rock'n rollin'!")){
+		if(GUI.Button(new Rect(Screen.width/2-75, Screen.height/2, 150, 30), Resources.Load("StartButton") as Texture)){
 			Application.LoadLevel("ROM Scene");
 		}
+		
+		*/
 
-		GUI.contentColor = Color.black;
+		if(Input.GetMouseButtonDown(0))
+			Application.LoadLevel("ROM Scene");
+		if(Input.GetMouseButtonDown(1))
+			Application.LoadLevel("ROM Scene");
+		if(Input.GetMouseButtonDown(2))
+			Application.LoadLevel("ROM Scene");
+
+
+		
+		
+		/*
+		var StartButton : Texture;
+		GUI.DrawTexture(Rect(10,10,60,60), StartButton, ScaleMode.ScaleToFit, true, 10.0f);S
+		Application.LoadLevel("ROM Scene");
+		*/
+
+		/*
+		GUI.contentColor = Color.white;
 
 		var centeredStyle = GUI.skin.GetStyle("Label");
 		centeredStyle.alignment = TextAnchor.UpperCenter;
@@ -32,7 +54,7 @@ public class DemoMainMenu : MonoBehaviour {
 		          "<size=25>Instructions:</size>\n\n" +
 		          "<size=14>Place a gemstone tower anywhere on the grid.</size>\n" +
 		          "<size=14>The objective is to erode all the ores.</size>\n\n", centeredStyle);
-
+		*/
 
 		/*
 		if(GUI.Button(new Rect(Screen.width/2-50, Screen.height/2-30+45, 100, 30), "Level 2")){
