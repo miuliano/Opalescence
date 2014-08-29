@@ -1,0 +1,39 @@
+Initialize engine version: 4.5.2f1 (9abb1b59b47c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 6900 Series (ID=0x6719)
+    Vendor:   ATI
+    VRAM:     2035 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.056 seconds
+desktop: 1680x1050 60Hz; virtual: 2960x1050 at -1280,0
+<RI> Initializing input.
+<RI> Input initialized.
+UnloadTime: 0.348157 ms
+Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\System.dll (this message is harmless)
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 841.
+Total: 0.733961 ms (FindLiveObjects: 0.028912 ms CreateObjectMapping: 0.012649 ms MarkObjects: 0.199678 ms  DeleteObjects: 0.018672 ms)
+
+game started
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+wave 0 has done spawning
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 10.508873 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 284.
+Total: 10.770292 ms (FindLiveObjects: 0.018672 ms CreateObjectMapping: 0.019576 ms MarkObjects: 0.397248 ms  DeleteObjects: 9.417418 ms)
+
