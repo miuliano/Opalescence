@@ -194,15 +194,19 @@ public class GameControl : MonoBehaviour {
 	}
 	
 	void OnWaveCleared(int waveID){
+
 		Debug.Log("Wave "+waveID+" has been cleared");
 		if(waveID==totalWaveCount-1){
 			//game over, player won
+
 			gameState=_GameState.Ended;
 			if(onGameOverE!=null) onGameOverE(true);
+
+			GameMessage.DisplayMessage("Wave "+waveID+" has been cleared");
+
 		}
 	}
-	
-	
+
 	
 	static public UnitTower selectedTower;
 	

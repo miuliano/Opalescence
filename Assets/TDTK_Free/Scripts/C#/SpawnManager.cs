@@ -241,7 +241,8 @@ public class SpawnManager : MonoBehaviour {
 		}
 		
 		Debug.Log("wave "+(currentWave-1)+" has done spawning");
-		
+
+
 		//set the wave spawn flag to true, so check can be run to see if this wave is cleared
 		waves[waveID].spawned=true;
 		

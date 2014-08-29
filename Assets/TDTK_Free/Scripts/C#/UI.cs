@@ -398,7 +398,8 @@ public class UI : MonoBehaviour {
 			//clear tooltip, each button when hovered will assign tooltip with corresponding ID
 			//the tooltip will be checked later, if there's anything, we show the corresponding tooltip
 			GUI.tooltip="";
-			
+
+
 			//build menu
 			if(buildMode==_BuildMode.PointNBuild){
 				//if PointNBuild mode, only show menu when there are active buildpoint (build menu on)
@@ -439,11 +440,11 @@ public class UI : MonoBehaviour {
 				float startX=Screen.width/2-100;
 				float startY=Screen.height*0.35f;
 				
-				for(int i=0; i<4; i++) GUI.Box(new Rect(startX, startY, 200, 150), "Game Paused");
+				for(int i=0; i<4; i++) GUI.Box(new Rect(startX, startY, 200, 125), "Game Paused");
 				
 				startX+=50;
 				
-				if(GUI.Button(new Rect(startX, startY+=30, 100, 30), "Resume Game")){
+				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Resume Game")){
 					TogglePause();
 				}
 				/*
@@ -452,7 +453,7 @@ public class UI : MonoBehaviour {
 
 			}
 */
-				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Main Menu")){
+				if(GUI.Button(new Rect(startX, startY+=45, 100, 30), "Main Menu")){
 					if(mainMenu!="") Application.LoadLevel(mainMenu);
 				}
 			}
@@ -467,21 +468,22 @@ public class UI : MonoBehaviour {
 			string levelCompleteString="Level Complete";
 			if(!winLostFlag) levelCompleteString="Level Lost";
 		
+
 			for(int i=0; i<4; i++) GUI.Box(new Rect(startX, startY, 200, 150), levelCompleteString);
 			
 			startX+=50;
 			
-			if(GUI.Button(new Rect(startX, startY+=30, 100, 30), "Restart Level")){
+			if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Restart Level")){
 				Application.LoadLevel(Application.loadedLevelName);
 			}
-		/*
+			/*
 			if(alwaysEnableNextButton || winLostFlag){
 				if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Next Level")){
 					if(nextLevel!="") Application.LoadLevel(nextLevel);
 				}
 			}
-		*/
-		if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Main Menu")){
+			*/
+			if(GUI.Button(new Rect(startX, startY+=45, 100, 30), "Main Menu")){
 				if(mainMenu!="") Application.LoadLevel(mainMenu);
 			}
 		

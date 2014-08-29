@@ -2,38 +2,90 @@ Initialize engine version: 4.5.2f1 (9abb1b59b47c)
 GfxDevice: creating device client; threaded=1
 Direct3D:
     Version:  Direct3D 11.0 [level 11.0]
-    Renderer: AMD Radeon HD 6900 Series (ID=0x6719)
+    Renderer: AMD Radeon R7 200 Series (ID=0x6613)
     Vendor:   ATI
-    VRAM:     2035 MB
+    VRAM:     2031 MB
 Begin MonoManager ReloadAssembly
-Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
-Loading E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
-- Completed reload, in  0.056 seconds
-desktop: 1680x1050 60Hz; virtual: 2960x1050 at -1280,0
+Platform assembly: E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.097 seconds
 <RI> Initializing input.
 <RI> Input initialized.
-UnloadTime: 0.348157 ms
-Platform assembly: E:\Workspace\Git\Opalescence\Build\romjamgame_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+UnloadTime: 0.377422 ms
+Platform assembly: E:\Documents\GitHub\Opalescence\WindowsBuild\romjamgame_Data\Managed\System.dll (this message is harmless)
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 841.
-Total: 0.733961 ms (FindLiveObjects: 0.028912 ms CreateObjectMapping: 0.012649 ms MarkObjects: 0.199678 ms  DeleteObjects: 0.018672 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 1.195333 ms (FindLiveObjects: 0.088977 ms CreateObjectMapping: 0.025422 ms MarkObjects: 0.344666 ms  DeleteObjects: 0.035688 ms)
 
-game started
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+UnloadTime: 2.740222 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-wave 0 has done spawning
- 
-(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 1.007111 ms (FindLiveObjects: 0.080177 ms CreateObjectMapping: 0.029822 ms MarkObjects: 0.299688 ms  DeleteObjects: 0.048888 ms)
 
-UnloadTime: 10.508873 ms
-Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+UnloadTime: 1.053066 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 57 unused Assets to reduce memory usage. Loaded Objects now: 284.
-Total: 10.770292 ms (FindLiveObjects: 0.018672 ms CreateObjectMapping: 0.019576 ms MarkObjects: 0.397248 ms  DeleteObjects: 9.417418 ms)
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.954800 ms (FindLiveObjects: 0.052311 ms CreateObjectMapping: 0.028355 ms MarkObjects: 0.284533 ms  DeleteObjects: 0.050355 ms)
+
+UnloadTime: 1.034000 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.954311 ms (FindLiveObjects: 0.069911 ms CreateObjectMapping: 0.026400 ms MarkObjects: 0.295288 ms  DeleteObjects: 0.050355 ms)
+
+UnloadTime: 1.045733 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.939155 ms (FindLiveObjects: 0.057200 ms CreateObjectMapping: 0.029822 ms MarkObjects: 0.296266 ms  DeleteObjects: 0.047422 ms)
+
+UnloadTime: 1.135689 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.994889 ms (FindLiveObjects: 0.073822 ms CreateObjectMapping: 0.027377 ms MarkObjects: 0.274266 ms  DeleteObjects: 0.050355 ms)
+
+UnloadTime: 1.566889 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.949911 ms (FindLiveObjects: 0.069422 ms CreateObjectMapping: 0.028844 ms MarkObjects: 0.281111 ms  DeleteObjects: 0.047911 ms)
+
+UnloadTime: 1.047200 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.949911 ms (FindLiveObjects: 0.070400 ms CreateObjectMapping: 0.029822 ms MarkObjects: 0.278666 ms  DeleteObjects: 0.049866 ms)
+
+UnloadTime: 1.069200 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 1.039377 ms (FindLiveObjects: 0.072844 ms CreateObjectMapping: 0.030800 ms MarkObjects: 0.283555 ms  DeleteObjects: 0.049377 ms)
+
+UnloadTime: 1.049644 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.971422 ms (FindLiveObjects: 0.074800 ms CreateObjectMapping: 0.032755 ms MarkObjects: 0.282577 ms  DeleteObjects: 0.050355 ms)
+
+UnloadTime: 1.071155 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.977289 ms (FindLiveObjects: 0.071377 ms CreateObjectMapping: 0.034222 ms MarkObjects: 0.289422 ms  DeleteObjects: 0.063066 ms)
+
+UnloadTime: 1.059422 ms
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 829.
+Total: 0.951377 ms (FindLiveObjects: 0.060622 ms CreateObjectMapping: 0.035688 ms MarkObjects: 0.289422 ms  DeleteObjects: 0.051333 ms)
 
