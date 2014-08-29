@@ -387,7 +387,7 @@ public class UI : MonoBehaviour {
 			int resource=GameControl.GetResourceVal();
 			float subStartX=10; float subStartY=0;
 			
-			GUI.Label(new Rect(subStartX, subStartY+2, 250f, 25f), "Resource: "+resource.ToString());
+			GUI.Label(new Rect(subStartX, subStartY+2, 250f, 25f), "Resources: "+resource.ToString());
 			subStartX+=70;
 		GUI.EndGroup ();
 		
@@ -561,7 +561,7 @@ public class UI : MonoBehaviour {
 			//show tower's cost
 			//get the resourceList from GameControl so we have all the information
 			int[] rsc=tower.GetCost();
-			GUI.Label(new Rect(5, 5+heightT, 150, 25), " - "+rsc[0].ToString()+"resource");
+			GUI.Label(new Rect(5, 5+heightT, 150, 25), " - "+rsc[0].ToString()+" resources");
 			
 			//show desciption
 			GUI.Label(new Rect(5, 5+heightC+heightT, 150, heightD), guiContent);
@@ -879,7 +879,7 @@ public class UI : MonoBehaviour {
 		if(upgradable){
 			if(GUI.Button(new Rect(startX, startY, 100, 30), new GUIContent("Upgrade", "1"))){
 				//upgrade the tower, if false is return, player have insufficient fund
-				if(!currentSelectedTower.Upgrade()) Debug.Log("Insufficient Resource");
+				if(!currentSelectedTower.Upgrade()) Debug.Log("Insufficient Resources");
 			}
 		}
 		//sell button
@@ -894,7 +894,7 @@ public class UI : MonoBehaviour {
 		if(GUI.tooltip=="1"){
 			
 			int[] cost=currentSelectedTower.GetCost();
-			GUI.Label(new Rect(startX+10, startY, 150, 25), " - "+cost[0].ToString()+"resource");
+			GUI.Label(new Rect(startX+10, startY, 150, 25), " - "+cost[0].ToString()+" resources");
 			
 		}
 		//if the cursor is hover on the sell button, show the resource gain

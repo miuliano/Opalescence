@@ -963,7 +963,7 @@ public class UnitTower : Unit {
 				GameControl.SpendResource(cost);
 			}
 			else{
-				GameMessage.DisplayMessage("Insufficient Resource");
+				GameMessage.DisplayMessage("Insufficient Resources");
 				return false;
 			}
 			

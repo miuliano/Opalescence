@@ -382,7 +382,7 @@ public class BuildManager : MonoBehaviour {
 		}
 		
 		//GameMessage.DisplayMessage("Insufficient Resource");
-		return "Insufficient Resource";
+		return "Insufficient Resources";
 	}
 	
 	public static string DragNDropBuilt(UnitTower tower){
@@ -446,7 +446,7 @@ public class BuildManager : MonoBehaviour {
 		}
 		
 		//GameMessage.DisplayMessage("Insufficient Resource");
-		return "Insufficient Resource";
+		return "Insufficient Resources";
 	}
 	
 	
