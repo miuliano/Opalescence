@@ -868,7 +868,7 @@ public class UI : MonoBehaviour {
 		//check if the tower can be upgrade
 		bool upgradable=false;
 		if(!currentSelectedTower.IsLevelCapped() && currentSelectedTower.IsBuilt()){
-			upgradable=false;
+			upgradable=true;
 		}
 		
 		//reset the draw position
