@@ -465,7 +465,7 @@ public class UI : MonoBehaviour {
 			float startX=Screen.width/2-100;
 			float startY=Screen.height*0.35f;
 			
-			string levelCompleteString="Level Complete";
+			string levelCompleteString="You're A Rock Master!";
 			if(!winLostFlag) levelCompleteString="Level Lost";
 		
 
@@ -473,7 +473,7 @@ public class UI : MonoBehaviour {
 			
 			startX+=50;
 			
-			if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Restart Level")){
+			if(GUI.Button(new Rect(startX, startY+=35, 100, 30), "Restart")){
 				Application.LoadLevel(Application.loadedLevelName);
 			}
 			/*
